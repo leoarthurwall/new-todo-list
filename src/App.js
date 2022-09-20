@@ -4,8 +4,8 @@ import { useState } from "react";
 function App() {
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState("");
-  const [todoEditing, setTodoEditing] = useState(null);
-  const [editingText, setEditingText] = useState("");
+  const [todoEditing, setTodoEditing] = useState(null); //id of the todo we are editing
+  const [editingText, setEditingText] = useState(''); //tracks the text of the todo we are editing
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,9 +41,18 @@ function App() {
     setTodos(updatedTodos);
   };
 
-  const editTodo = () => {
-    
-  }
+  //EDIT TODO - map over the todos array, if todo.id is matched, then todo.text = editingTest state. SetTodos is updated and states are reset.
+  const editTodo = (id) => {
+    const updatedTodos = [...todos].map((todo) => {
+      if (todo.id === id) {
+        todo.text = editingText;
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+    setTodoEditing(null);
+    setEditingText('');
+  };
 
   return (
     <div className="App">
@@ -58,13 +67,16 @@ function App() {
       </form>
       {todos.map((todo) => (
         <div key={todo.id}>
-        {todoEditing === todo.id ? ( <input
-            type="text"
-            onChange={(e) => setEditingText(e.target.value)}
-            value={todo}
-          />) : (<div>{todo.text}</div>)}
-          
-         
+          {todoEditing === todo.id ? (
+            <input
+              type="text"
+              onChange={(e) => setEditingText(e.target.value)}
+              value={editingText}
+            />
+          ) : (
+            <div>{todo.text}</div>
+          )}
+
           <button onClick={() => deleteTodo(todo.id)}>Delete</button>
           <input
             type="checkbox"
@@ -72,7 +84,7 @@ function App() {
             checked={todo.completed}
           />
           <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
-          <button onClick={() => editTodo(todo.id) }>Confirm</button>
+          <button onClick={() => editTodo(todo.id)}>Confirm</button>
         </div>
       ))}
     </div>
