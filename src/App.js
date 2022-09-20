@@ -7,13 +7,19 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const newTodo = {
+      id: new Date().getTime(),
+      text: todo,
+      completed: false,
+    };
+
+    //take in current todos array and add the new todo to it.
+    setTodos([...todos].concat(newTodo));
+    //resets the input and makes it black
+    setTodo("")
   };
 
-  const newTodo = {
-    id: new Date().getTime(),
-    text: todo,
-    complete: false,
-  };
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
