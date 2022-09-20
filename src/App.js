@@ -1,17 +1,18 @@
 import "./index.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState("");
   const [todoEditing, setTodoEditing] = useState(null); //id of the todo we are editing
   const [editingText, setEditingText] = useState(""); //tracks the text of the todo we are editing
-  
+
   //RETRIEVES DATA
   //runs once when page is loaded
   //access local storage with getItem method, accessing the "todos" string saved above
   //parses JSON string back to JSON object
   //only setTodos if loaded todos exist
+
   useEffect(() => {
     const temp = localStorage.getItem("todos");
     const loadedTodos = JSON.parse(temp);
@@ -24,11 +25,11 @@ function App() {
   //STORES DATA
   // runs every time the todos array changes
   // todos is turned into JSON string, data is then saved to local storage as key/value pair
+
   useEffect(() => {
     const temp = JSON.stringify(todos);
     localStorage.setItem("todos", temp);
   }, [todos]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
