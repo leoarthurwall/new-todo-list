@@ -4,6 +4,8 @@ import { useState } from "react";
 function App() {
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState("");
+  const [todoEditing, setTodoEditing] = useState(null);
+  const [editingText, setEditingText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,6 +41,10 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const editTodo = () => {
+    
+  }
+
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -52,14 +58,21 @@ function App() {
       </form>
       {todos.map((todo) => (
         <div key={todo.id}>
-          <div>{todo.text}</div>
+        {todoEditing === todo.id ? ( <input
+            type="text"
+            onChange={(e) => setEditingText(e.target.value)}
+            value={todo}
+          />) : (<div>{todo.text}</div>)}
+          
+         
           <button onClick={() => deleteTodo(todo.id)}>Delete</button>
           <input
             type="checkbox"
             onChange={() => toggleComplete(todo.id)}
             checked={todo.completed}
           />
-          <button>Edit</button>
+          <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
+          <button onClick={() => editTodo(todo.id) }>Confirm</button>
         </div>
       ))}
     </div>
