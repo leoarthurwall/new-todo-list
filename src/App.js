@@ -20,6 +20,13 @@ function App() {
     setTodo("");
   };
 
+  const deleteTodo = (id) => {
+    //new variable that copies array, and returns todos that do not match the id of the selected todo.
+    const updatedTodos = [...todos].filter((todo) => todo.id !== id);
+    //sets the todos array to the updated todos
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -33,8 +40,8 @@ function App() {
       </form>
       {todos.map((todo) => (
         <div key={todo.id}>
-          <h3>{todo.text}</h3>
-          <button>Delete</button>
+          <div>{todo.text}</div>
+          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
           <button>Edit</button>
           <input type="checkbox"></input>
         </div>
