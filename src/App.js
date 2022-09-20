@@ -9,7 +9,11 @@ function App() {
     e.preventDefault();
   };
 
-  const
+  const newTodo = {
+    id: new Date().getTime(),
+    text: todo,
+    complete: false,
+  };
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
