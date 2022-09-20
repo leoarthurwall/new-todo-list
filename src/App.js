@@ -1,11 +1,15 @@
 import './index.css';
+import { useState } from 'react'
 
 function App() {
+  const [todos, setTodos] = useState([])
+  const [todo, setTodo] = useState('')
   return (
     <div className="App">
-      <header className="App-header">
-        The new todo app
-      </header>
+      <form>
+        <input type="text" placeholder='Write a todo...' />
+        <button type='submit' > Add Todo</button>
+      </form>
     </div>
   );
 }
