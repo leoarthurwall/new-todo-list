@@ -5,7 +5,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState("");
   const [todoEditing, setTodoEditing] = useState(null); //id of the todo we are editing
-  const [editingText, setEditingText] = useState(''); //tracks the text of the todo we are editing
+  const [editingText, setEditingText] = useState(""); //tracks the text of the todo we are editing
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ function App() {
     });
     setTodos(updatedTodos);
     setTodoEditing(null);
-    setEditingText('');
+    setEditingText("");
   };
 
   return (
@@ -83,8 +83,11 @@ function App() {
             onChange={() => toggleComplete(todo.id)}
             checked={todo.completed}
           />
-          <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
-          <button onClick={() => editTodo(todo.id)}>Confirm</button>
+          {todoEditing === todo.id ? (
+            <button onClick={() => editTodo(todo.id)}>Confirm</button>
+          ) : (
+            <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
+          )}
         </div>
       ))}
     </div>
