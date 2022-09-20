@@ -31,6 +31,7 @@ function App() {
         />
         <button type="submit"> Add Todo</button>
       </form>
+      {todos.map((todo) => <div>{todo.text}</div>)}
     </div>
   );
 }
