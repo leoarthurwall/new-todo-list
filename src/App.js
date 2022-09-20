@@ -4,13 +4,19 @@ import { useState } from "react";
 function App() {
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const
   return (
     <div className="App">
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Write a todo..."
-          onChange={(e) => setTodos(e.target.value)}
+          onChange={(e) => setTodo(e.target.value)}
           value={todo}
         />
         <button type="submit"> Add Todo</button>
