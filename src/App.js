@@ -1,14 +1,19 @@
-import './index.css';
-import { useState } from 'react'
+import "./index.css";
+import { useState } from "react";
 
 function App() {
-  const [todos, setTodos] = useState([])
-  const [todo, setTodo] = useState('')
+  const [todos, setTodos] = useState([]);
+  const [todo, setTodo] = useState("");
   return (
     <div className="App">
       <form>
-        <input type="text" placeholder='Write a todo...' />
-        <button type='submit' > Add Todo</button>
+        <input
+          type="text"
+          placeholder="Write a todo..."
+          onChange={(e) => setTodos(e.target.value)}
+          value={todo}
+        />
+        <button type="submit"> Add Todo</button>
       </form>
     </div>
   );
