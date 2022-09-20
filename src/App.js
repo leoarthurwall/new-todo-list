@@ -17,7 +17,7 @@ function App() {
     //take in current todos array and add the new todo to it.
     setTodos([...todos].concat(newTodo));
     //resets the input and makes it black
-    setTodo("")
+    setTodo("");
   };
 
   return (
@@ -31,7 +31,14 @@ function App() {
         />
         <button type="submit"> Add Todo</button>
       </form>
-      {todos.map((todo) => <div>{todo.text}</div>)}
+      {todos.map((todo) => (
+        <div key={todo.id}>
+          <h3>{todo.text}</h3>
+          <button>Delete</button>
+          <button>Edit</button>
+          <input type="checkbox"></input>
+        </div>
+      ))}
     </div>
   );
 }
