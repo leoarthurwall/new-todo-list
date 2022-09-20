@@ -27,6 +27,18 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const toggleComplete = (id) => {
+    // new variable copies array and maps through the individual todo.
+    const updatedTodos = [...todos].map((todo) => {
+      //ifstatement to see if todo's id matches the id of the checkbox - set todo completed status to opposite
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -42,8 +54,12 @@ function App() {
         <div key={todo.id}>
           <div>{todo.text}</div>
           <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          <input
+            type="checkbox"
+            onChange={() => toggleComplete(todo.id)}
+            checked={todo.completed}
+          />
           <button>Edit</button>
-          <input type="checkbox"></input>
         </div>
       ))}
     </div>
