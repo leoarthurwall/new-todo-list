@@ -1,4 +1,6 @@
 body {
  text-align: center;
+ background-image: linear-gradient(to right, rgb(99, 154, 255) , rgb(34, 69, 245));
+ height: 100vh;
 }
 
