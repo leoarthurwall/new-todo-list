@@ -144,3 +144,9 @@ function App() {
 }
 
 export default App;
+
+//FUTURE IMPLEMENTATIONS
+// - number of todos remaining
+// - line through text when text box is checked
+// - option to cancel edit mode, so you're not forced to make a change when you click on the edit button
+// - organisation of components and file structure
