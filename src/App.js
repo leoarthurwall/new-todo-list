@@ -78,7 +78,7 @@ function App() {
           value={todo}
           className="todo-input"
         />
-        <button type="submit" className="add-button"> Add Todo</button>
+        <button type="submit" className="add-button"> Add</button>
       </form>
       {todos.map((todo) => (
         <div key={todo.id} className="todos">
