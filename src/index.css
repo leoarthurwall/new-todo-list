@@ -104,3 +104,7 @@ body {
 .edit-input::placeholder{
   color: rgb(194, 194, 194);
 }
+
+.toggle-input:checked+label {
+  text-decoration: line-through;
+}

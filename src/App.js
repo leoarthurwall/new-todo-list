@@ -82,6 +82,8 @@ function App() {
           placeholder="write a todo..."
           onChange={(e) => setTodo(e.target.value)}
           value={todo}
+          autoFocus
+          required
           className="todo-input"
         />
         <button type="submit" className="add-button">
@@ -89,49 +91,54 @@ function App() {
           Add
         </button>
       </form>
-      {todos.map((todo) => (
-        <div key={todo.id} className="todos-container">
-          <div className="todo-text-edit-toggle-container">
-            <input
-              className="toggle-input"
-              type="checkbox"
-              onChange={() => toggleComplete(todo.id)}
-              checked={todo.completed}
-            />
-            {todoEditing === todo.id ? (
+      {todos
+        .sort((a, b) => b.id - a.id)
+        .map((todo) => (
+          <div key={todo.id} className="todos-container">
+            <div className="todo-text-edit-toggle-container">
               <input
-                className="edit-input"
-                placeholder="update todo..."
-                type="text"
-                onChange={(e) => setEditingText(e.target.value)}
-                value={editingText}
+                className="toggle-input"
+                type="checkbox"
+                onChange={() => toggleComplete(todo.id)}
+                checked={todo.completed}
               />
-            ) : (
-              <div className="todo-text">{todo.text}</div>
-            )}
-          </div>
-          <div className="todo-button-container">
-            {todoEditing === todo.id ? (
-              <button className="icon-button" onClick={() => editTodo(todo.id)}>
-                <CheckCircleIcon width={20} height={20} color="white" />
-              </button>
-            ) : (
+              {todoEditing === todo.id ? (
+                <input
+                  className="edit-input"
+                  placeholder="update todo..."
+                  type="text"
+                  onChange={(e) => setEditingText(e.target.value)}
+                  value={editingText}
+                />
+              ) : (
+                <div className="todo-text">{todo.text}</div>
+              )}
+            </div>
+            <div className="todo-button-container">
+              {todoEditing === todo.id ? (
+                <button
+                  className="icon-button"
+                  onClick={() => editTodo(todo.id)}
+                >
+                  <CheckCircleIcon width={20} height={20} color="white" />
+                </button>
+              ) : (
+                <button
+                  className="icon-button"
+                  onClick={() => setTodoEditing(todo.id)}
+                >
+                  <PencilSquareIcon width={20} height={20} color="white" />
+                </button>
+              )}
               <button
-                className="icon-button"
-                onClick={() => setTodoEditing(todo.id)}
+                className="delete-button"
+                onClick={() => deleteTodo(todo.id)}
               >
-                <PencilSquareIcon width={20} height={20} color="white" />
+                <TrashIcon width={20} height={20} color="white" />
               </button>
-            )}
-            <button
-              className="delete-button"
-              onClick={() => deleteTodo(todo.id)}
-            >
-              <TrashIcon width={20} height={20} color="white" />
-            </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 }
