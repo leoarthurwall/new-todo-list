@@ -79,3 +79,12 @@ Simply click the red trash icon button and your wonderful todo will be deleted f
   This stopped prevented me seeing an empty array every time the page was refreshed.
 
   Result!
+
+  ---
+
+  ### Future Implementations
+
+- Display the number of todos remaining
+- Put a line through the todo text when it's text box is checked
+- A way to cancel the edit mode, so you're not forced to make a change else loose the current todo when you click on the edit button
+- Organisation of components and file structure
