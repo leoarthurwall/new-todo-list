@@ -78,31 +78,38 @@ function App() {
           value={todo}
           className="todo-input"
         />
-        <button type="submit" className="add-button"> Add</button>
+        <button type="submit" className="add-button">
+          {" "}
+          Add
+        </button>
       </form>
       {todos.map((todo) => (
-        <div key={todo.id} className="todos">
-          {todoEditing === todo.id ? (
-            <input
-              type="text"
-              onChange={(e) => setEditingText(e.target.value)}
-              value={editingText}
-            />
-          ) : (
-            <div>{todo.text}</div>
-          )}
-
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+        <div key={todo.id} className="todos-container">
+          <div className="todo-text-edit-toggle-container">
           <input
-            type="checkbox"
-            onChange={() => toggleComplete(todo.id)}
-            checked={todo.completed}
-          />
-          {todoEditing === todo.id ? (
-            <button onClick={() => editTodo(todo.id)}>Confirm</button>
-          ) : (
-            <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
-          )}
+              type="checkbox"
+              onChange={() => toggleComplete(todo.id)}
+              checked={todo.completed}
+            />
+            {todoEditing === todo.id ? (
+              <input
+                type="text"
+                onChange={(e) => setEditingText(e.target.value)}
+                value={editingText}
+              />
+            ) : (
+              <div>{todo.text}</div>
+            )}
+          </div>
+          <div className="todo-button-container">
+            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            
+            {todoEditing === todo.id ? (
+              <button onClick={() => editTodo(todo.id)}>Confirm</button>
+            ) : (
+              <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
+            )}
+          </div>
         </div>
       ))}
     </div>

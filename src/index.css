@@ -13,6 +13,7 @@ body {
   background-color: white;
   border-radius: 5px;
   margin-top: 10vh;
+  
 
   display: flex;
   flex-direction: column;
@@ -22,6 +23,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   padding: 1rem 0rem;
+  border-bottom: 1px solid rgb(170, 170, 170);
 
 }
 .todo-input{
@@ -45,12 +47,24 @@ body {
   border: none;
   cursor: pointer;
   width: 80px;
-  transition: all 1s ease;
-
-
+  transition: all 0.5s ease;
 }
-
 .add-button:hover{
   background-color: rgb(165, 165, 255);
   transform: scale(1.05);
+}
+
+.todos-container{
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem 1rem;
+
+}
+.todo-text-edit-toggle-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
