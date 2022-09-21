@@ -79,7 +79,7 @@ function App() {
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
-          placeholder="Write a todo..."
+          placeholder="write a todo..."
           onChange={(e) => setTodo(e.target.value)}
           value={todo}
           className="todo-input"
@@ -93,18 +93,21 @@ function App() {
         <div key={todo.id} className="todos-container">
           <div className="todo-text-edit-toggle-container">
             <input
+              className="toggle-input"
               type="checkbox"
               onChange={() => toggleComplete(todo.id)}
               checked={todo.completed}
             />
             {todoEditing === todo.id ? (
               <input
+                className="edit-input"
+                placeholder="update todo..."
                 type="text"
                 onChange={(e) => setEditingText(e.target.value)}
                 value={editingText}
               />
             ) : (
-              <div>{todo.text}</div>
+              <div className="todo-text">{todo.text}</div>
             )}
           </div>
           <div className="todo-button-container">

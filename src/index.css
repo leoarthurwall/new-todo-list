@@ -5,6 +5,7 @@ body {
 
  display: flex;
  justify-content: center;
+ font-family: sans-serif;
 }
 
 .App {
@@ -24,15 +25,17 @@ body {
   justify-content: space-evenly;
   padding: 1rem 0rem;
   border-bottom: 1px solid rgb(170, 170, 170);
+  margin-bottom: 10px;
 
 }
 .todo-input{
-  border: 2px solid rgb(170, 170, 170);
+  border: 2px solid rgb(196, 195, 195);
   border-radius: 5px;
   width: 220px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding:0.4rem;
   color: grey;
+  outline-color: rgb(43, 99, 255);
 }
 .todo-input::placeholder{
   color: rgb(194, 194, 194);
@@ -56,11 +59,13 @@ body {
 
 .todos-container{
   display: flex;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid rgb(239, 239, 250);
+  border-radius: 5px;
+  margin: 5px 15px;
 }
 .todo-button-container{
   display: flex;
@@ -70,6 +75,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 0.6rem;
 }
 .icon-button{
   background-color: rgb(43, 99, 255);
@@ -82,4 +88,19 @@ body {
   border: none;
   padding: 6px 10px;
   border-radius: 5px;
+}
+.todo-text{
+  font-size: 0.9rem;
+}
+.edit-input{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(222, 222, 222);
+  width: 200px;
+  font-size: 0.9rem;
+  padding:0.4rem;
+  color: grey;
+}
+.edit-input::placeholder{
+  color: rgb(194, 194, 194);
 }
