@@ -2,38 +2,26 @@ import "./index.css";
 import React, { useState, useEffect } from "react";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  //NOTE: use state returns an empty array if local storage returns null/undefined
+  const [todos, setTodos] = useState( JSON.parse(localStorage.getItem("todos")) ?? []);
   const [todo, setTodo] = useState("");
   const [todoEditing, setTodoEditing] = useState(null); //id of the todo we are editing
   const [editingText, setEditingText] = useState(""); //tracks the text of the todo we are editing
 
-  //RETRIEVES DATA
-  //runs once when page is loaded
-  //access local storage with getItem method, accessing the "todos" string saved above
-  //parses JSON string back to JSON object
-  //only setTodos if loaded todos exist
-
-  useEffect(() => {
-    const temp = localStorage.getItem("todos");
-    const loadedTodos = JSON.parse(temp);
-
-    if (loadedTodos) {
-      setTodos(loadedTodos);
-    }
-  }, []);
 
   //STORES DATA
   // runs every time the todos array changes
   // todos is turned into JSON string, data is then saved to local storage as key/value pair
-
   useEffect(() => {
     const temp = JSON.stringify(todos);
     localStorage.setItem("todos", temp);
   }, [todos]);
 
+
+  //HANDLE SUBMIT FUNCTION
+  // creates an object for each todo that is submitted
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const newTodo = {
       id: new Date().getTime(),
       text: todo,
@@ -46,6 +34,7 @@ function App() {
     setTodo("");
   };
 
+  //DELETE TODO FUNCTION
   const deleteTodo = (id) => {
     //new variable that copies array, and returns todos that do not match the id of the selected todo.
     const updatedTodos = [...todos].filter((todo) => todo.id !== id);
@@ -53,6 +42,7 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  //TOGGLE COMPLETE FUNCTION
   const toggleComplete = (id) => {
     // new variable copies array and maps through the individual todo.
     const updatedTodos = [...todos].map((todo) => {
