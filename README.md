@@ -33,3 +33,49 @@ What else can this application possibly do you might wonder. Remember, it's CRUD
 Simply click the red trash icon button and your wonderful todo will be deleted forever.
 
 ![delete todo](images/deleteTodo.png)
+
+---
+
+## Skills Learned & Used
+
+- **react hooks**
+  - useState
+  - useEffect
+- **Array Methods**
+  - .map( )
+  - .sort( )
+- **Event Handlers**
+  - On Click
+  - On Change
+- **Conditional rendering**
+  - ternary operators
+  - if statements
+- **nullish coalescing operator (??)**
+  - returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+- **how to save data in local storage**
+  - getItem( )
+  - setItem( )
+  - JSON.stringify
+  - JSON.parse
+  - Chrome dev tools: Applications - to check the key:value status in local storage
+- **HeroIcons**
+  - Installing and importing from the iconlibrary
+  - Styling the icons
+
+  ___
+
+  ## hurdles
+
+  ###  local storage
+  It was the first time I became aware of the power of local storage. The code seemed fairly straightforward to use. I was able to store the data in the local storage, but upon refresh the data would not persist. It was parsed and stringified, wrapped in a useEffect hook. A simple solution was to add the following code to the useState for the todos array:
+
+  ```const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) ?? []
+  );
+  ```
+
+  By putting the  JSON.parse(localStorage.getItem("todos") inside the useState and using the ??, it would only return an empty array if the local storage was null or uundefined. 
+
+  This stopped prevented me seeing an empty array every time the page was refreshed.
+
+  Result!
