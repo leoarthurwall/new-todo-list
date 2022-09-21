@@ -105,6 +105,3 @@ body {
   color: rgb(194, 194, 194);
 }
 
-.toggle-input:checked+label {
-  text-decoration: line-through;
-}
