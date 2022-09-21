@@ -69,7 +69,8 @@ Simply click the red trash icon button and your wonderful todo will be deleted f
   ###  local storage
   It was the first time I became aware of the power of local storage. The code seemed fairly straightforward to use. I was able to store the data in the local storage, but upon refresh the data would not persist. It was parsed and stringified, wrapped in a useEffect hook. A simple solution was to add the following code to the useState for the todos array:
 
-  ```const [todos, setTodos] = useState(
+  ```
+   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) ?? []
   );
   ```
