@@ -61,10 +61,25 @@ body {
   align-items: center;
 
   padding: 0.5rem 1rem;
-
+}
+.todo-button-container{
+  display: flex;
+  gap: 0.5rem;
 }
 .todo-text-edit-toggle-container{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.icon-button{
+  background-color: rgb(43, 99, 255);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+.delete-button{
+  background-color: rgb(255, 43, 43);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
 }

@@ -1,5 +1,11 @@
 import "./index.css";
 import React, { useState, useEffect } from "react";
+//HEROICONS IMPORTS
+import {
+  CheckCircleIcon,
+  PencilSquareIcon,
+  TrashIcon,
+} from "@heroicons/react/24/solid";
 
 function App() {
   //NOTE: use state returns an empty array if local storage returns null/undefined
@@ -86,7 +92,7 @@ function App() {
       {todos.map((todo) => (
         <div key={todo.id} className="todos-container">
           <div className="todo-text-edit-toggle-container">
-          <input
+            <input
               type="checkbox"
               onChange={() => toggleComplete(todo.id)}
               checked={todo.completed}
@@ -102,13 +108,24 @@ function App() {
             )}
           </div>
           <div className="todo-button-container">
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-            
             {todoEditing === todo.id ? (
-              <button onClick={() => editTodo(todo.id)}>Confirm</button>
+              <button className="icon-button" onClick={() => editTodo(todo.id)}>
+                <CheckCircleIcon width={20} height={20} color="white" />
+              </button>
             ) : (
-              <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
+              <button
+                className="icon-button"
+                onClick={() => setTodoEditing(todo.id)}
+              >
+                <PencilSquareIcon width={20} height={20} color="white" />
+              </button>
             )}
+            <button
+              className="delete-button"
+              onClick={() => deleteTodo(todo.id)}
+            >
+              <TrashIcon width={20} height={20} color="white" />
+            </button>
           </div>
         </div>
       ))}
