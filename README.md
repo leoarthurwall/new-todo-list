@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# TODO APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the CRUD Todo app. With this todo app, you can create, read, update and delete todos. 
 
-## Available Scripts
+Furthermore, the todos are stored in local storage, so don't worry about leaving the page - your todos will be waiting for you as you left them.
 
-In the project directory, you can run:
+![cover image](images/coverImage.png)
 
-### `npm start`
+Add some todos and you'll notice they are sorted with the most recent todo being displayed at the top of the todo list. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![four todos](images/fourTodos.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can see by comparing this image to the image above.
 
-### `npm test`
+![sort todos example](images/sortTodos.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As mentioned, this is a CRUD application. So far you've seen how we create and read the todos. Let's look into how we can edit our todos.
 
-### `npm run build`
+Simply press the edit icon button.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![edit todo](images/editTodo.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Now you will have the option to edit the todo. Simply press enter of the confirm icon button to complete the edit.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![edit text](images/newEditTodo.png)
 
-### `npm run eject`
+Congratulations, your todo has now been cussessfully edited.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![post edit](images/postEditTodo.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+What else can this application possibly do you might wonder. Remember, it's CRUD. Bring on the delete function...
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Simply click the red trash icon button and your wonderful todo will be deleted forever.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![delete todo](images/deleteTodo.png)
