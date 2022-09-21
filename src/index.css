@@ -2,5 +2,32 @@ body {
  text-align: center;
  background-image: linear-gradient(to right, rgb(99, 154, 255) , rgb(34, 69, 245));
  height: 100vh;
+
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
+.App {
+  min-height: 400px;
+  width: 400px;
+  background-color: white;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.form{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 0rem;
+
+}
+.todo-input{
+  border: 2px solid rgb(170, 170, 170);
+  border-radius: 5px;
+  width: 220px;
+  font-size: 1rem;
+  padding:0.4rem;
+}

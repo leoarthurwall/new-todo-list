@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   //NOTE: use state returns an empty array if local storage returns null/undefined
-  const [todos, setTodos] = useState( JSON.parse(localStorage.getItem("todos")) ?? []);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todos")) ?? []
+  );
   const [todo, setTodo] = useState("");
   const [todoEditing, setTodoEditing] = useState(null); //id of the todo we are editing
   const [editingText, setEditingText] = useState(""); //tracks the text of the todo we are editing
-
 
   //STORES DATA
   // runs every time the todos array changes
@@ -16,7 +17,6 @@ function App() {
     const temp = JSON.stringify(todos);
     localStorage.setItem("todos", temp);
   }, [todos]);
-
 
   //HANDLE SUBMIT FUNCTION
   // creates an object for each todo that is submitted
@@ -70,17 +70,18 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
           placeholder="Write a todo..."
           onChange={(e) => setTodo(e.target.value)}
           value={todo}
+          className="todo-input"
         />
-        <button type="submit"> Add Todo</button>
+        <button type="submit" className="add-button"> Add Todo</button>
       </form>
       {todos.map((todo) => (
-        <div key={todo.id}>
+        <div key={todo.id} className="todos">
           {todoEditing === todo.id ? (
             <input
               type="text"
